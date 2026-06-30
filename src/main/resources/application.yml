@@ -11,40 +11,57 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
+        # MS Nicolas
         - id: asignaturas-service
           uri: lb://MS-ASIGNATURAS
           predicates:
-            - Path=/ms-asignaturas/**
-          filters:
-            - StripPrefix=1
+            - Path=/api/asignaturas/**
 
         - id: calificaciones-service
           uri: lb://MS-CALIFICACIONES
           predicates:
-            - Path=/ms-calificaciones/**
-          filters:
-            - StripPrefix=1
+            - Path=/api/calificaciones/**
 
         - id: estudiantes-service
           uri: lb://MS-ESTUDIANTES
           predicates:
-            - Path=/ms-estudiantes/**
-          filters:
-            - StripPrefix=1
+            - Path=/api/estudiantes/**
 
         - id: finanzas-service
           uri: lb://MS-FINANZAS
           predicates:
-            - Path=/ms-finanzas/**
-          filters:
-            - StripPrefix=1
+            - Path=/api/cobros/**
 
         - id: seguridad-service
           uri: lb://MS-SEGURIDAD
           predicates:
-            - Path=/ms-seguridad/**
-          filters:
-            - StripPrefix=1
+            - Path=/api/auth/**
+
+        # MS Evelyn
+        - id: cursos-service
+          uri: lb://MS-CURSOS
+          predicates:
+            - Path=/api/v1/cursos/**
+
+        - id: profesores-service
+          uri: lb://MS-PROFESORES
+          predicates:
+            - Path=/api/v1/profesores/**
+
+        - id: asistencia-service
+          uri: lb://MS-ASISTENCIA
+          predicates:
+            - Path=/api/v1/asistencias/**
+
+        - id: horarios-service
+          uri: lb://MS-HORARIOS
+          predicates:
+            - Path=/api/v1/horario/**
+
+        - id: comunicaciones-service
+          uri: lb://MS-COMUNICACIONES
+          predicates:
+            - Path=/api/comunicaciones/**
 
 eureka:
   instance:
